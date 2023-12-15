@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com" xmlns:sec="http://www.thymeleaf.com/extras/spring-security">
+    <head>
+        <title>PANEL ADMIN</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div th:if="${error != null}">
+            <h3>ERROR!</h3>
+            <p th:text="${error}"></p>
+        </div>
+        
+        
+        <div th:if="${exito != null}">
+            <h3>EXITO!</h3>
+            <p th:text="${exito}"></p>
+        </div>
+        <h1>PANEL ADMIN</h1>
+        <h1 th:text=" 'Admin ' + ${session.usuariosession.nombre} + '!' "></h1>
+        <img th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" alt="Img Perf">
+        <nav th:replace="/fragments/navbar :: nav"></nav>
+    </body>
+</html>

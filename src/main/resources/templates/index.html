@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+    <head>
+        <title>Portal index</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>HOLA MUNDO SOY UN INDEX CHIKITO</div>
+        <div th:if="${exito != null}">
+            <h3>EXITO!</h3>
+            <p th:text="${exito}"></p>
+        </div>
+        <nav th:replace="/fragments/navbar :: nav"> </nav>
+    </body>
+</html>

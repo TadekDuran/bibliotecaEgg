@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+    <head>
+        <title>Menu Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <div th:if="${error != null}">
+            <h3>ERROR!</h3>
+            <p th:text="${error}"></p>
+        </div>
+        
+        
+        <form class="formulario" th:action="@{/logincheck}" method="POST">
+            <h3>Accede a la biblioteca!</h3>
+            <div>
+                <input type="email" name="email" placeholder="EMAIL">
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="CONTRASEÑA">
+            </div>
+            <button type="submit">Ingresar</button>
+        </form>
+        <a th:href="@{/}">Volver</a>
+    </body>
+</html>

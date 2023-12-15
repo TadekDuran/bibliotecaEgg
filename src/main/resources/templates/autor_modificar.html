@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+    <head>
+        <title>Modificar Autor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <h1>Modificar Autor</h1>
+        </header>
+        <div>
+            <form th:action="@{/autor/modificar/__${autor.id}__}" method="POST">
+                <input hidden th:value="${id}" name="id">
+                <div>
+                    <label>Modificar Autor</label>
+                    <input th:value="${autor.nombre}" type="text" name="nombre" placeholder="NOMBRE DEL AUTOR/A">
+                </div>
+                <button type="submit">Actualizar</button>
+            </form>
+        </div>
+        <a th:href="@{/inicio}">Volver</a>
+        <div th:if="${error != null}">
+            <h3>ERROR!</h3>
+            <p th:text="${error}"></p>
+        </div>
+        <div th:if="${exito != null}">
+            <h3>EXITO!</h3>
+            <p th:text="${exito}"></p>
+        </div>
+        
+    </body>
+</html>

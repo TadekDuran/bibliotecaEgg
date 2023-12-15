@@ -1,0 +1,43 @@
+<nav>
+    <ul th:if="${session.usuariosession != null}">
+        <li>
+            <h1>Libros</h1>
+            <div>
+                <a th:href="@{/libro/lista}">Lista</a>
+            </div>
+            <div>
+                <a th:href="@{/libro/registrar}" sec:authorize="hasRole('ADMIN')">Crear</a>
+            </div>
+        </li>
+        <li>
+            <h1>Autores</h1>
+            <div>
+                <a th:href="@{/autor/lista}">Lista</a>
+            </div>
+            <div>
+                <a th:href="@{/autor/registrar}" sec:authorize="hasRole('ADMIN')">Crear</a>
+            </div>
+        </li>
+        <li>
+            <h1>Editoriales</h1>
+            <div>
+                <a th:href="@{/editorial/lista}">Lista</a>
+            </div>
+            <div>
+                <a th:href="@{/editorial/registrar}" sec:authorize="hasRole('ADMIN')">Crear</a>
+            </div>
+        </li>
+    </ul>
+    <div>
+        <a th:href="@{/perfil}" th:if="${session.usuariosession != null}">Editar Perfil</a>
+    </div>
+    <div>
+        <a th:href="@{/login}" th:if="${session.usuariosession == null}">Iniciar sesión</a>
+    </div>
+    <div>   
+        <a th:href="@{/registrar}" th:if="${session.usuariosession == null}">Registrarse</a>
+    </div>
+    <div>
+        <a th:href="@{/logout}" th:if="${session.usuariosession != null}">Cerrar sesión</a>
+    </div>
+</nav>

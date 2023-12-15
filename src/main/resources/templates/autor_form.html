@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+    <head>
+        <title>Subir un autor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <div>
+                <h2>Carga el autor aquí</h2>
+            </div>
+        </header>
+        
+        <div>
+            <form action="/autor/registro" method="POST">
+                <label>Cargar autor
+                    <input type="text" name="nombre" placeholder="Indique el autor">
+                </label>
+                <button type="submit">Subir</button>
+            </form>
+        </div>
+        <a th:href="@{/inicio}">Volver</a>
+        <div th:if="${error != null}">
+            <h3>ERROR!</h3>
+            <p th:text="${error}"></p>
+        </div>
+        
+        
+        <div th:if="${exito != null}">
+            <h3>EXITO!</h3>
+            <p th:text="${exito}"></p>
+        </div>
+        
+    </body>
+</html>
